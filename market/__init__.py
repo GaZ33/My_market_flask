@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
+
 import os
 
 # Carrega as variáveis de ambiente do arquivo .env
@@ -17,7 +18,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
-
+app.app_context().push()
+from market.models import Item
 from market import routes
 
 
