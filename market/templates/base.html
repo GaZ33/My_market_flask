@@ -24,18 +24,18 @@
         <div class="collapse navbar-collapse" id="navbarsExample04">
           <ul class="navbar-nav me-auto mb-2 mb-md-0">
             <li class="nav-item">
-              <a class="nav-link active fs-5" aria-current="page" href="#">Home</a>
+              <a class="nav-link active fs-5" aria-current="page" href="{{ url_for('home_page')}}">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active fs-5" href="{{ url_for('market_page')}}">Market</a>
             </li>
 
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle active fs-5" href="#" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+              <a class="nav-link dropdown-toggle active fs-5" href="#" data-bs-toggle="dropdown" aria-expanded="false">Perfil</a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <li><a class="dropdown-item" href="#">Meu perfil</a></li>
+                <li><a class="dropdown-item" href="#">Histórico de compra</a></li>
+                <li><a class="dropdown-item" href="#">Meus itens</a></li>
               </ul>
             </li>
           </ul>

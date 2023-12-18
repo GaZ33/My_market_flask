@@ -8,6 +8,8 @@ class Item(db.Model):
     Description = db.Column(db.String(length=1024))
     Quantity = db.Column(db.Integer())
     Barcode = db.Column(db.String(length=12), nullable=False, unique=True)
+    Subtitle = db.Column(db.String(length=17))
+    Category = db.Column(db.String(length=50))
     #User_id = db.Column(db.Integer(), db.ForeignKey('user.id'))
 
     def __repr__(self):

@@ -20,3 +20,11 @@ body{
     width: 75px;
     border-radius: 75px;
 }
+
+.main-content{
+    margin-left: 50px;
+}
+
+.card-text{
+    font-size: 15px;
+}
