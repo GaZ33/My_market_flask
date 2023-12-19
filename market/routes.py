@@ -12,3 +12,7 @@ def market_page():
     items = Item.query.filter(Item.Quantity >= 1).all()
     print(items)
     return render_template("market.html", items=items)
+
+@app.route('/register')
+def register_page():
+    return render_template('register.html')
