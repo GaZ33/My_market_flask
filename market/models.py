@@ -24,3 +24,5 @@ class User(db.Model):
     MName = db.Column(db.String(length=25), nullable=True)
     LName = db.Column(db.String(length=15), nullable=False)
     Budget = db.Column(db.Float(), nullable=False, default=3000)
+    # Criando a relação com a entidade Item
+    item = db.relationship('Item', backref="Owned_user", lazy=True)
