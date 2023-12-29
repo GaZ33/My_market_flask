@@ -1,6 +1,6 @@
 from market import db
 
-
+# Criando a instância de Item no DB com os atributos
 class Item(db.Model):
     IdItem = db.Column(db.Integer(), primary_key=True)
     Name = db.Column(db.String(length=30), nullable=False)
@@ -10,8 +10,9 @@ class Item(db.Model):
     Barcode = db.Column(db.String(length=12), nullable=False, unique=True)
     Subtitle = db.Column(db.String(length=17))
     Category = db.Column(db.String(length=50))
+    # Atributo especial, é a foreign key para relacionar com a tabela User
     User_id = db.Column(db.Integer(), db.ForeignKey('user.IdUser'))
-
+    # Método para quando se criar uma instância de Item ficar com o nome e não a localização da instância
     def __repr__(self):
         return f"Item {self.Name}"
     

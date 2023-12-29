@@ -7,17 +7,20 @@ import os
 # Carrega as variáveis de ambiente do arquivo .env
 load_dotenv()
 
+# Iniciando a aplicação do Flask
 app = Flask(__name__)
 
-# Pegando o valor do .env
+# Pegando o valor do da variável chamada DB_CONNECTION do .env
 db_connection = os.getenv("DB_CONNECTION")
-
+# Incuindo a path do MySQL nas config da aplicação para poder acessar o DB
 app.config['SQLALCHEMY_DATABASE_URI'] = db_connection
 # Desativa o rastreamento de modificações para evitar avisos
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
+# Criando a instância do SQLAlchemy referênciando a aplicação que estamos trabalhando
 db = SQLAlchemy(app)
 
+# Comando para executar/modificar/adicionar as queries
 app.app_context().push()
 from market.models import Item
 from market import routes
