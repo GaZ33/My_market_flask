@@ -16,6 +16,9 @@ db_connection = os.getenv("DB_CONNECTION")
 app.config['SQLALCHEMY_DATABASE_URI'] = db_connection
 # Desativa o rastreamento de modificações para evitar avisos
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# Criando uma chave de criptografia para as senhas registradas
+app.config['SECRET_KEY'] = '95f1760008984d43f87bcdec'
+
 
 # Criando a instância do SQLAlchemy referênciando a aplicação que estamos trabalhando
 db = SQLAlchemy(app)
