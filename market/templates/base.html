@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="../static/style.css">
   </head>
   <body>
-    <nav class="navbar navbar-expand-md navbar-dark pt-3 pb-3" aria-label="Fourth navbar example" id="nav-bar">
+    <header class="navbar navbar-expand-md navbar-dark pt-3 pb-3" aria-label="Fourth navbar example" id="nav-bar">
       <div class="container-fluid">
         <a class="navbar-brand fs-4" href="{{ url_for('home_page')}}"><img src="../static/img/logo.PNG" class="img-fluid" alt="Logo"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,7 +50,29 @@
           </ul>
         </div>
       </div>
-    </nav>
+    </header>
+          <!-- Adicionando a exibição de erros -->
+          {% with messages = get_flashed_messages(with_categories=true) %}
+          <!-- Se houver algum erro -->
+            {%if messages %}
+            <!-- Iterando os erros -->
+              {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                  
+                  <button type="button" class="m1-2 mb-1 close" data-dismiss="alert" aria-label="Close">
+                    
+                    <!-- esses aria-hidden é responsável pelo o que o X deve fazer quando clicamos nele -->
+                    <!-- &times; é o botão X -->
+                    <span aria-hidden="true">&times;</span>
+                    
+                  </button>
+                  
+                  {{ message}}
+                </div>
+              {% endfor %}
+            {% endif %}
+    
+          {% endwith %}
     
     {% block content %}
 

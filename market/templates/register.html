@@ -5,16 +5,44 @@ Register Page
 {% endblock%}
 
 {% block content%}
-<h1 class="h3 mb-3 font-weight-normal text-center">
-    Please Create your Account
+<h1 class="h3 mt-3 mb-3 font-weight-normal text-center" style="color:white">
+    Por favor preencha os campos
 </h1>
 <br>
-<form class="form-register" style="color:white" method="POST">
+<form class="form-register container" style="color:white" method="POST">
     {{ form.hidden_tag() }}
-    {{ form.login.label(class="mb-2")}}
-    <!-- Esse statement irá aceitar o input do user, o argumento é só uma classe do boostrap -->
-    {{form.login(class="form-control mb-3", placeholder="User Name") }}
+    <div class="row">
+        <div class="col">
+            {{ form.Fname.label(class="mb-2")}}
+            {{form.Fname(class="form-control mb-3", placeholder="*") }}
+        </div>
+        <div class="col">
+            {{ form.Mname.label(class="mb-2")}}
+            {{form.Mname(class="form-control mb-3", placeholder=" ") }}
+        </div>
+        <div class="col">
+            {{ form.Lname.label(class="mb-2")}}
+            {{form.Lname(class="form-control mb-3", placeholder="*") }}
+        </div>
+      </div>
+    <div class="row">
+        <div class="col">
+            {{ form.login.label(class="mb-2")}}
+            {{form.login(class="form-control mb-3", placeholder="*") }}
+        </div>
+        <div class="col">
+            {{ form.email_address.label(class="mb-2")}}
+            {{form.email_address(class="form-control mb-3", placeholder="*") }}
+        </div>
+    </div>
+    {{form.password1.label(class="mb-2")}}
+    {{form.password1(class="form-control mb-3", placeholder="*") }}
 
+    {{form.password2.label(class="mb-2")}}
+    {{form.password2(class="form-control mb-3", placeholder="*") }}
+    
+    {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+      
 </form>
 
 

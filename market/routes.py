@@ -1,6 +1,6 @@
-from market import app
-from flask import render_template
-from market.models import Item
+from market import app, db
+from flask import render_template, redirect, url_for, flash, request
+from market.models import Item, User
 from market.forms import RegisterForm
 
 @app.route('/')
@@ -14,7 +14,22 @@ def market_page():
     print(items)
     return render_template("market.html", items=items)
 
-@app.route('/register')
+@app.route('/register', methods=['GET', 'POST'])
 def register_page():
     form = RegisterForm()
+    
+    if form.validate_on_submit():
+        user_creted = User(Login=form.login.data, 
+                    Email=form.email_address.data, 
+                    Password_hash=form.password1.data,
+                    FName=form.Fname.data, 
+                    MName=form.Mname.data, 
+                    LName=form.Lname.data)
+        db.session.add(user_creted)
+        db.session.commit()
+        return redirect(url_for("market_page"))
+    if form.errors != {}:
+        for err_msg in form.errors.values():
+            flash("Houve um erro ao criar a conta: {err_msg}", category="danger")
+
     return render_template('register.html', form = form)
