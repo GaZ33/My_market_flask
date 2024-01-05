@@ -30,6 +30,7 @@ def register_page():
         return redirect(url_for("market_page"))
     if form.errors != {}:
         for err_msg in form.errors.values():
-            flash("Houve um erro ao criar a conta: {err_msg}", category="danger")
+            flash(f"Houve um erro ao criar a conta: {err_msg[0]}", category="danger")
+            print(type(err_msg))
 
     return render_template('register.html', form = form)

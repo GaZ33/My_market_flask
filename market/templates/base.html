@@ -57,18 +57,27 @@
             {%if messages %}
             <!-- Iterando os erros -->
               {% for category, message in messages %}
-                <div class="alert alert-{{ category }}">
+              <div class="mt-3 alert alert-{{ category }} alert-dismissible fade show container" role="alert">
+                <span>{{ message }}</span>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+  
+  
+  
+  
+              <!-- <div class="">
+                
+                <button type="button" class="m1-2 mb-1 close" data-dismiss="alert" aria-label="Close">
                   
-                  <button type="button" class="m1-2 mb-1 close" data-dismiss="alert" aria-label="Close">
-                    
-                    <!-- esses aria-hidden é responsável pelo o que o X deve fazer quando clicamos nele -->
-                    <!-- &times; é o botão X -->
-                    <span aria-hidden="true">&times;</span>
-                    
-                  </button>
+                  esses aria-hidden é responsável pelo o que o X deve fazer quando clicamos nele -->
+                  <!-- &times; é o botão X 
+                  <span aria-hidden="true">&times;</span>
                   
-                  {{ message}}
-                </div>
+                </button>
+                
+                
+              </div> 
+              -->
               {% endfor %}
             {% endif %}
     
