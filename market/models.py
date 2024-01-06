@@ -1,4 +1,5 @@
 from market import db
+from market import bcrypt
 
 # Criando a instância de Item no DB com os atributos
 class Item(db.Model):
@@ -27,5 +28,14 @@ class User(db.Model):
     Budget = db.Column(db.Float(), nullable=False, default=3000)
     # Criando a relação com a entidade Item
     item = db.relationship('Item', backref="Owned_user", lazy=True)
+
+    # Criando uma propriedade para fazer a hash password, ela será executada como método
+    @property
+    def password(self):
+        return self.passowrd
+    # Quando atribuirem um valor a variável password ela executará o esse decorator que codificará a senha
+    @password.setter
+    def password(self, password_text):
+        self.Password_hash = bcrypt.generate_password_hash(password_text).decode('utf-8')
 
     

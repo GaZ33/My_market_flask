@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
+from flask_bcrypt import Bcrypt
 
 import os
 
@@ -19,6 +20,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # Criando uma chave de criptografia para as senhas registradas
 app.config['SECRET_KEY'] = '95f1760008984d43f87bcdec'
 
+bcrypt = Bcrypt()
 
 # Criando a instância do SQLAlchemy referênciando a aplicação que estamos trabalhando
 db = SQLAlchemy(app)

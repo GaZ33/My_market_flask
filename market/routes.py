@@ -21,7 +21,7 @@ def register_page():
     if form.validate_on_submit():
         user_creted = User(Login=form.login.data, 
                     Email=form.email_address.data, 
-                    Password_hash=form.password1.data,
+                    password=form.password1.data,
                     FName=form.Fname.data, 
                     MName=form.Mname.data, 
                     LName=form.Lname.data)
