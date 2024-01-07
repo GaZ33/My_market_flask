@@ -1,12 +1,13 @@
 from market import app, db
 from flask import render_template, redirect, url_for, flash, request
 from market.models import Item, User
-from market.forms import RegisterForm
+from market.forms import RegisterForm, LoginForm
 
-@app.route('/')
-@app.route("/home")
+@app.route('/', methods=['GET', 'POST'])
+@app.route("/home", methods=['GET', 'POST'])
 def home_page():
-    return render_template("home.html")
+    login_form = LoginForm()
+    return render_template("home.html", login_form=login_form)
 
 @app.route('/market')
 def market_page():
@@ -17,7 +18,7 @@ def market_page():
 @app.route('/register', methods=['GET', 'POST'])
 def register_page():
     form = RegisterForm()
-    
+    login_form = LoginForm()
     if form.validate_on_submit():
         user_creted = User(Login=form.login.data, 
                     Email=form.email_address.data, 
@@ -33,4 +34,4 @@ def register_page():
             flash(f"Houve um erro ao criar a conta: {err_msg[0]}", category="danger")
             print(type(err_msg))
 
-    return render_template('register.html', form = form)
+    return render_template('register.html', form = form, login_form=login_form)

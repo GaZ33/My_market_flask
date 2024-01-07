@@ -26,3 +26,7 @@ class RegisterForm(FlaskForm):
     password2 = PasswordField(label="Confirme sua senha", validators=[EqualTo('password1'), DataRequired()])
     submit = SubmitField(label="Criar conta")
 
+class LoginForm(FlaskForm):
+    login = StringField(label="Username", validators=[DataRequired()])
+    password = PasswordField(label="Senha", validators=[])
+    submit = SubmitField(label="Entrar")

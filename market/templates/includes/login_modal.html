@@ -1,0 +1,30 @@
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="h3 mb-3 font-weight-normal text-center">
+            Login
+        </h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form method="POST" style="color: black">
+          {{ login_form.hidden_tag() }}
+          
+          {{ login_form.login.label(class="mb-2")}}
+          {{ login_form.login(class="form-control mb-3", placeholder="Usuário")}}
+
+          {{ login_form.password.label(class="mb-2")}}
+          {{ login_form.password(class="form-control mb-3", placeholder="Senha")}}
+          
+
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Understood</button>
+        </div>
+      </div>
+    </div>
+  </div>

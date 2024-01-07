@@ -41,7 +41,10 @@
           </ul>
           <ul class="navbar-nav mb-2 mb-md-0">
             <li class="nav-item">
-              <a class="nav-link active fs-5" aria-current="page" href="#">Login</a>
+              {% include 'includes/login_modal.html' %}
+              <button type="button" class="nav-link active fs-5" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                Launch static backdrop modal
+              </button>
             </li>
             <li class="nav-item">
               <a class="nav-link active fs-5" aria-current="page" href="{{ url_for('register_page')}}">Register</a>
@@ -62,22 +65,6 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
               </div>
   
-  
-  
-  
-              <!-- <div class="">
-                
-                <button type="button" class="m1-2 mb-1 close" data-dismiss="alert" aria-label="Close">
-                  
-                  esses aria-hidden é responsável pelo o que o X deve fazer quando clicamos nele -->
-                  <!-- &times; é o botão X 
-                  <span aria-hidden="true">&times;</span>
-                  
-                </button>
-                
-                
-              </div> 
-              -->
               {% endfor %}
             {% endif %}
     
