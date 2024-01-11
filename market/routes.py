@@ -13,6 +13,7 @@ def home_page():
         if attempted_user and attempted_user.check_password_correction(attempted_password=login_form.password.data):
             login_user(attempted_user)
             flash(f"Sucesso! Você está logado como {attempted_user.Login}", category="sucess")
+            redirect(url_for('market_page'))
         else:
             flash(f'Usuário ou senha estão incorretos, por favor tente novamente!', category="danger")
     return render_template("home.html", login_form=login_form)
