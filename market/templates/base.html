@@ -26,11 +26,11 @@
             <li class="nav-item">
               <a class="nav-link active fs-5" aria-current="page" href="{{ url_for('home_page')}}">Home</a>
             </li>
-            {% if current_user.is_authenticated %}
+            
             <li class="nav-item">
               <a class="nav-link active fs-5" href="{{ url_for('market_page')}}">Market</a>
             </li>
-            
+            {% if current_user.is_authenticated %}
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle active fs-5" href="#" data-bs-toggle="dropdown" aria-expanded="false">Perfil</a>
               <ul class="dropdown-menu">

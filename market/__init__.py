@@ -27,6 +27,11 @@ LoginManager = LoginManager(app)
 # Criando a instância do SQLAlchemy referênciando a aplicação que estamos trabalhando
 db = SQLAlchemy(app)
 
+LoginManager.login_view = "home_page"
+
+LoginManager.login_message_category = "info"
+LoginManager.login_message= "Entre ou crie em uma conta para acessar essa página!"
+
 # Comando para executar/modificar/adicionar as queries
 app.app_context().push()
 from market.models import Item
