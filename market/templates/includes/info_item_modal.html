@@ -1,17 +1,28 @@
 <!-- Modal -->
-<div class="modal fade" id="Modal-MoreInfo-{{ item.id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="Modal-MoreInfo-{{ item.IdItem }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">{{item.Name}}</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body ">
+          
             Preço: {{item.Price}}
+            <br>
+            Quantidade: {{item.Quantity}}
+            <br>
+            Código de barras: {{item.Barcode}}
+            <br>
+            Descrição: {{item.Description}}
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Understood</button>
+          <form method="POST">
+            {{ purchase_form.hidden_tag()}}
+            {{purchase_form.submit(class="btn btn-primary")}}
+          </form>
+          <!-- <button type="button" class="">Understood</button> -->
         </div>
       </div>
     </div>
